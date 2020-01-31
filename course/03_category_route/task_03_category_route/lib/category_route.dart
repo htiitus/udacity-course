@@ -1,20 +1,11 @@
-// Copyright 2018 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 import 'package:flutter/material.dart';
+
+import 'category.dart';
 
 // TODO: Check if we need to import anything
 
-// TODO: Define any constants
+final _background = Colors.green[100];
 
-/// Category Route (screen).
-///
-/// This is the 'home' screen of the Unit Converter. It shows a header and
-/// a list of [Categories].
-///
-/// While it is named CategoryRoute, a more apt name would be CategoryScreen,
-/// because it is responsible for the UI at the route's destination.
 class CategoryRoute extends StatelessWidget {
   const CategoryRoute();
 
@@ -42,19 +33,44 @@ class CategoryRoute extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Create a list of the eight Categories, using the names and colors
-    // from above. Use a placeholder icon, such as `Icons.cake` for each
-    // Category. We'll add custom icons later.
+    final categories = <Category>[];
 
-    // TODO: Create a list view of the Categories
-    final listView = Container();
+    for (var i = 0; i < _categoryNames.length; i++) {
+      categories.add(new Category(
+          name: _categoryNames[i],
+          color: _baseColors[i],
+          iconLocation: Icons.cake));
+    }
 
-    // TODO: Create an App Bar
-    final appBar = AppBar();
+    final listView = Container(
+      padding: EdgeInsets.symmetric(horizontal: 8.0),
+      color: _background,
+      child: _buildListCategoryWidgets(categories),
+    );
+
+    final appBar = AppBar(
+        backgroundColor: _background,
+        title: Center(
+          child: Text(
+            'Unit Converter',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 36.0,
+                fontWeight: FontWeight.bold
+            ),
+          ),
+        ));
 
     return Scaffold(
       appBar: appBar,
       body: listView,
+    );
+  }
+
+  Widget _buildListCategoryWidgets(List<Widget> categories) {
+    return ListView.builder(
+      itemBuilder: (BuildContext context, int i) => categories[i],
+      itemCount: categories.length,
     );
   }
 }

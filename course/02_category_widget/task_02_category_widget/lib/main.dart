@@ -5,7 +5,7 @@ const _categoryName = 'Cake';
 const _categoryIcon = Icons.cake;
 const _categoryColor = Colors.green;
 
-void main() {
+  void main() {
   runApp(UnitConverterApp());
 }
 
