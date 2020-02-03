@@ -43,8 +43,6 @@ const Category({
             color: color,
             units: units,
           ),
-          // This prevents the attempt to resize the screen when the keyboard
-          // is opened
           resizeToAvoidBottomPadding: false,
         );
       },
@@ -60,8 +58,8 @@ const Category({
         child: InkWell(
           borderRadius: _borderRadius,
           // TODO: Use the highlight and splash colors from the ColorSwatch
-          highlightColor: color,
-          splashColor: color,
+          highlightColor: color['highlight'],
+          splashColor: color['splash'],
           onTap: () => _navigateToConverter(context),
           child: Padding(
             padding: EdgeInsets.all(8.0),
