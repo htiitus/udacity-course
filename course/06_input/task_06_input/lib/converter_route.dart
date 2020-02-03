@@ -1,7 +1,3 @@
-// Copyright 2018 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
@@ -9,19 +5,12 @@ import 'unit.dart';
 
 const _padding = EdgeInsets.all(16.0);
 
-/// [ConverterRoute] where users can input amounts to convert in one [Unit]
-/// and retrieve the conversion in another [Unit] for a specific [Category].
-///
-/// While it is named ConverterRoute, a more apt name would be ConverterScreen,
-/// because it is responsible for the UI at the route's destination.
 class ConverterRoute extends StatefulWidget {
-  /// Color for this [Category].
+
   final Color color;
 
-  /// Units for this [Category].
   final List<Unit> units;
 
-  /// This [ConverterRoute] requires the color and units to not be null.
   const ConverterRoute({
     @required this.color,
     @required this.units,
